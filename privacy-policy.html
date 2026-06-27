@@ -1,74 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — MyMedStock</title>
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #F5F7FA;
-    color: #0D2B4E;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-  }
-  .header {
-    background: #0D2B4E;
-    padding: 2rem 1.5rem;
-    text-align: center;
-  }
-  .wordmark {
-    font-size: 24px;
-    font-weight: 500;
-  }
-  .wordmark .my, .wordmark .stock { color: #E8F0F7; }
-  .wordmark .med { color: #E8622A; }
-  .header a {
-    color: #7FA8C9;
-    text-decoration: none;
-    font-size: 13px;
-    display: inline-block;
-    margin-top: 8px;
-  }
-  .content {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-    background: white;
-  }
-  h1 { font-size: 24px; margin-top: 0; }
-  h2 { font-size: 18px; margin-top: 2rem; color: #0D2B4E; border-bottom: 1px solid #E8EDF2; padding-bottom: 8px; }
-  p, li { color: #2C3E50; font-size: 15px; }
-  .updated { color: #7FA8C9; font-size: 13px; margin-bottom: 2rem; }
-  table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-  th, td { text-align: left; padding: 8px; border-bottom: 1px solid #E8EDF2; font-size: 14px; }
-  th { color: #5A6F86; font-weight: 600; }
-  a { color: #2E7DB5; }
-  .footer { text-align: center; padding: 2rem; color: #7FA8C9; font-size: 12px; }
-  .legal-entity { text-align: center; padding: 0 1.5rem; color: #A7B9C9; font-size: 11px; max-width: 720px; margin: 2rem auto 0; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — MyMedStock</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1a1a1a; background: #fff; }
+    .container { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #e5e5e5; }
+    .brand { font-size: 20px; font-weight: 700; color: #0D2B4E; text-decoration: none; }
+    .back { font-size: 14px; color: #0D2B4E; text-decoration: none; }
+    .back:hover { text-decoration: underline; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-btn { font-size: 13px; padding: 4px 10px; border: 1px solid #0D2B4E; border-radius: 4px; cursor: pointer; background: white; color: #0D2B4E; }
+    .lang-btn.active { background: #0D2B4E; color: white; }
+    h1 { font-size: 28px; font-weight: 700; color: #0D2B4E; margin-bottom: 8px; }
+    .updated { font-size: 14px; color: #666; margin-bottom: 40px; }
+    h2 { font-size: 18px; font-weight: 600; color: #0D2B4E; margin: 36px 0 12px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 12px 0 14px 24px; }
+    li { margin-bottom: 6px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+    th { background: #0D2B4E; color: white; padding: 10px 12px; text-align: left; }
+    td { padding: 9px 12px; border-bottom: 1px solid #e5e5e5; }
+    tr:last-child td { border-bottom: none; }
+    a { color: #0D2B4E; }
+    .notice { background: #f5f7fa; border-left: 3px solid #0D2B4E; padding: 14px 16px; margin: 16px 0; border-radius: 2px; font-size: 15px; }
+    footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid #e5e5e5; font-size: 13px; color: #888; }
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+  </style>
 </head>
 <body>
-  <div class="header">
-    <div class="wordmark">
-      <span class="my">My</span><span class="med">Med</span><span class="stock">Stock</span>
+<div class="container">
+  <header>
+    <a href="/" class="brand">MyMedStock</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/" class="back">← Back to home</a>
+      <div class="lang-switch">
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-pl" onclick="setLang('pl')">PL</button>
+      </div>
     </div>
-    <a href="index.html">← Back to home</a>
-  </div>
+  </header>
 
-  <div class="content">
+  <!-- ENGLISH VERSION -->
+  <div data-lang="en">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: June 16, 2026</p>
+    <p class="updated">Last updated: June 27, 2026</p>
+
+    <div class="notice">The English version of this Privacy Policy is the legally binding version. The Polish translation is provided for informational purposes only.</div>
 
     <h2>1. Who We Are</h2>
     <p>MyMedStock is developed and operated by:</p>
-    <p><strong>Bonna Studio</strong><br>
+    <p><strong>MBJ Studio</strong><br>
+    Legal entity: Mariusz Bonna-Juszkiewicz, trading as MBJ Studio<br>
+    Tax ID (NIP): 5911459846 · Poland<br>
     Email: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a></p>
-    <p>If you have any questions about this Privacy Policy, please contact us at the email address above.</p>
 
     <h2>2. What MyMedStock Is (and Is Not)</h2>
-    <p>MyMedStock is a <strong>personal medication inventory management app</strong>. It helps you track your medication stock levels and estimate how long your supply will last.</p>
+    <p>MyMedStock is a personal medication inventory management app. It helps you track your medication stock levels and estimate how long your supply will last.</p>
     <p>MyMedStock is <strong>not</strong>:</p>
     <ul>
       <li>a medical app,</li>
@@ -79,19 +71,20 @@
     <p>All medical decisions remain solely with you and your healthcare provider.</p>
 
     <h2>3. Who Can Use MyMedStock</h2>
-    <p>MyMedStock is intended for users <strong>aged 18 and older</strong>. By using the app, you confirm that you are at least 18 years of age.</p>
+    <p>MyMedStock is intended for users aged 18 and older. By using the app, you confirm that you are at least 18 years of age.</p>
 
     <h2>4. What Data We Collect</h2>
-    <p><strong>4.1 Account Data</strong><br>
-    When you create an account, we collect:</p>
+
+    <h2>4.1 Account Data</h2>
+    <p>When you create an account, we collect:</p>
     <ul>
       <li>Email address</li>
       <li>Password (stored in encrypted form — we never see your actual password)</li>
     </ul>
     <p>If you sign in with Google, we receive your email address and display name from Google.</p>
 
-    <p><strong>4.2 Medication Data</strong><br>
-    Data you enter manually:</p>
+    <h2>4.2 Medication Data</h2>
+    <p>Data you enter manually:</p>
     <ul>
       <li>Medication names</li>
       <li>Medication forms (tablet, capsule, gel, etc.)</li>
@@ -100,36 +93,41 @@
       <li>Expiry dates</li>
     </ul>
     <p>This data is stored in your personal account and is not shared with anyone.</p>
+    <p><strong>Important:</strong> Medication information you enter may indirectly reveal information about your health conditions. We treat this data with the same care as health-related data. It is processed solely to provide app functionality, is never used for advertising, is never sold to third parties, and is never used for profiling.</p>
 
-    <p><strong>4.3 Technical Data</strong><br>
-    We may collect basic technical information to ensure the app works correctly:</p>
+    <h2>4.3 Technical Data</h2>
+    <p>We may collect basic technical information to ensure the app works correctly:</p>
     <ul>
       <li>App version</li>
       <li>Device operating system version</li>
       <li>Error logs (in case of app crashes)</li>
     </ul>
-    <p>We do <strong>not</strong> collect: location data, device identifiers (IMEI, advertising ID), or usage analytics beyond what is necessary for app functionality.</p>
+    <p>We do not collect: location data, device identifiers (IMEI, advertising ID), or usage analytics beyond what is necessary for app functionality.</p>
+    <p>We do not use cookies. Some preferences (such as notification settings and app theme) are stored locally on your device using standard Android storage mechanisms and are never transmitted to our servers.</p>
 
     <h2>5. How We Use Your Data</h2>
     <p>We use your data exclusively to:</p>
     <ul>
       <li>provide the core functionality of the app (medication tracking, stock calculations),</li>
+      <li>perform supply estimates and planning calculations based exclusively on data you provide,</li>
       <li>send you push notifications you have configured (weekly summaries, low stock alerts),</li>
       <li>maintain and improve the app.</li>
     </ul>
-    <p>We do <strong>not</strong>: sell your data to third parties, use your data for advertising, share your data with pharmaceutical companies or healthcare providers, or use your medication data for any purpose other than displaying it to you.</p>
+    <p>We do not: sell your data to third parties, use your data for advertising, share your data with pharmaceutical companies or healthcare providers, or use your medication data for any purpose other than displaying it to you.</p>
 
-    <h2>6. Where Your Data Is Stored</h2>
-    <p>Your data is stored on servers provided by <strong>Supabase</strong> (Supabase Inc.), located in the <strong>European Union (Ireland — AWS eu-west-1 region)</strong>.</p>
-    <p>Supabase acts as our data processor. Their privacy policy is available at: <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
+    <h2>6. Supply Calculations</h2>
+    <p>All stock calculations, appointment planning estimates, and trip planning results are estimates based entirely on data you provide. Calculations may become inaccurate if you enter incorrect data, forget to update your stock, change your dosage without recording it, lose medication, or consume medication differently than recorded.</p>
+    <p>MyMedStock does not guarantee the correctness, completeness, or suitability of any calculation. You remain responsible for independently verifying medication quantities and expiry dates with the physical packaging before making any decisions.</p>
+
+    <h2>7. Where Your Data Is Stored</h2>
+    <p>Your data is stored on servers provided by Supabase (Supabase Inc.), located in the European Union (Ireland — AWS eu-west-1 region). Supabase acts as our data processor. Their privacy policy is available at: <a href="https://supabase.com/privacy">supabase.com/privacy</a></p>
     <p>Data storage within the EU means your data is protected under GDPR.</p>
 
-    <h2>7. How Long We Keep Your Data</h2>
-    <p>We keep your data for as long as your account is active.</p>
-    <p>If you delete your account: all your personal data is permanently deleted from our servers within 30 days. This action is irreversible.</p>
-    <p>You can delete your account at any time from: <strong>Settings → Delete account and data</strong>.</p>
+    <h2>8. How Long We Keep Your Data</h2>
+    <p>We keep your data for as long as your account is active. If you delete your account, all your personal data is permanently deleted from our servers within 30 days. This action is irreversible.</p>
+    <p>You can delete your account at any time from: Settings → Delete account and data.</p>
 
-    <h2>8. Your Rights Under GDPR</h2>
+    <h2>9. Your Rights Under GDPR</h2>
     <p>As a resident of the European Union, you have the following rights:</p>
     <ul>
       <li><strong>Right of access</strong> — request a copy of the data we hold about you.</li>
@@ -137,48 +135,196 @@
       <li><strong>Right to erasure</strong> — delete your account and all associated data at any time.</li>
       <li><strong>Right to data portability</strong> — request your data in a machine-readable format.</li>
       <li><strong>Right to object</strong> — object to the processing of your data.</li>
+      <li><strong>Right to restriction of processing</strong> — request that we limit how we process your data in certain circumstances.</li>
       <li><strong>Right to withdraw consent</strong> — withdraw consent at any time, where applicable.</li>
     </ul>
     <p>To exercise any of these rights, contact us at: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a></p>
-    <p>You also have the right to lodge a complaint with your national data protection authority. In Poland, this is the <strong>Urząd Ochrony Danych Osobowych (UODO)</strong>: <a href="https://uodo.gov.pl" target="_blank">uodo.gov.pl</a></p>
+    <p>You also have the right to lodge a complaint with your national data protection authority. In Poland, this is the Urząd Ochrony Danych Osobowych (UODO): <a href="https://uodo.gov.pl">uodo.gov.pl</a></p>
 
-    <h2>9. Push Notifications</h2>
+    <h2>10. Push Notifications</h2>
     <p>If you enable push notifications, we will send you:</p>
     <ul>
       <li>Weekly medication stock summaries (on a day and time you choose in Settings),</li>
-      <li>Critical low stock alerts (when a medication falls below your configured threshold).</li>
+      <li>Critical low stock alerts (when a medication falls below your configured threshold),</li>
+      <li>Prescription pickup reminders (for medications marked as awaiting collection).</li>
     </ul>
+    <p>Push notifications are a convenience feature. MyMedStock does not guarantee that notifications will be delivered. Notification delivery depends on your device settings, operating system, battery optimisation, and network connectivity. You remain solely responsible for managing your medication supply — do not rely exclusively on notifications to track your medications.</p>
     <p>You can disable notifications at any time in App Settings → Notifications, or your device's system notification settings.</p>
 
-    <h2>10. Third-Party Services</h2>
-    <p>MyMedStock uses the following third-party services:</p>
+    <h2>11. Third-Party Services</h2>
     <table>
       <tr><th>Service</th><th>Purpose</th><th>Privacy Policy</th></tr>
-      <tr><td>Supabase</td><td>Database and authentication</td><td><a href="https://supabase.com/privacy" target="_blank">Link</a></td></tr>
-      <tr><td>Google Sign-In</td><td>Optional authentication method</td><td><a href="https://policies.google.com/privacy" target="_blank">Link</a></td></tr>
-      <tr><td>Firebase (Google)</td><td>App distribution (beta testing)</td><td><a href="https://firebase.google.com/support/privacy" target="_blank">Link</a></td></tr>
+      <tr><td>Supabase</td><td>Database and authentication</td><td><a href="https://supabase.com/privacy">Link</a></td></tr>
+      <tr><td>Google Sign-In</td><td>Optional authentication method</td><td><a href="https://policies.google.com/privacy">Link</a></td></tr>
+      <tr><td>Firebase (Google)</td><td>App distribution (beta testing)</td><td><a href="https://firebase.google.com/support/privacy">Link</a></td></tr>
     </table>
 
-    <h2>11. Security</h2>
+    <h2>12. Security</h2>
     <p>We take the security of your data seriously: all data is transmitted over encrypted connections (HTTPS/TLS), passwords are never stored in plain text, and access to the database is protected by Row Level Security (RLS) — you can only access your own data.</p>
     <p>However, no system is 100% secure. If you discover a security vulnerability, please contact us immediately at: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a></p>
 
-    <h2>12. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. If we make significant changes, we will notify you through the app.</p>
-    <p>The date of the last update is always shown at the top of this document. Continued use of the app after changes are published constitutes acceptance of the updated policy.</p>
+    <h2>13. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. If we make significant changes, we will notify you through the app. Minor updates (such as clarifications or corrections) may be made without notice. The date of the last update is always shown at the top of this document.</p>
+    <p>Continued use of the app after changes are published constitutes acceptance of the updated policy.</p>
 
-    <h2>13. Contact</h2>
+    <h2>14. Contact</h2>
     <p>If you have any questions about this Privacy Policy or how we handle your data:</p>
-    <p><strong>Bonna Studio</strong><br>
-    Email: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a></p>
+    <p><strong>MBJ Studio</strong><br>
+    Email: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a><br>
+    Legal entity: Mariusz Bonna-Juszkiewicz, trading as MBJ Studio · Tax ID (NIP): 5911459846 · Poland</p>
 
+    <footer>© 2026 MBJ Studio · MyMedStock</footer>
   </div>
 
-  <div class="legal-entity">
-    <p>Legal entity: Mariusz Bonna-Juszkiewicz, trading as Bonna Studio · Tax ID (NIP): 5911459846 · Poland</p>
+  <!-- POLISH VERSION -->
+  <div data-lang="pl">
+    <h1>Polityka Prywatności</h1>
+    <p class="updated">Ostatnia aktualizacja: 27 czerwca 2026</p>
+
+    <div class="notice">Prawnie wiążąca jest angielska wersja Polityki Prywatności. Poniższe tłumaczenie na język polski ma charakter wyłącznie informacyjny.</div>
+
+    <h2>1. Kim jesteśmy</h2>
+    <p>MyMedStock jest rozwijany i obsługiwany przez:</p>
+    <p><strong>MBJ Studio</strong><br>
+    Podmiot prawny: Mariusz Bonna-Juszkiewicz, działający jako MBJ Studio<br>
+    NIP: 5911459846 · Polska<br>
+    E-mail: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a></p>
+
+    <h2>2. Czym jest MyMedStock (i czym nie jest)</h2>
+    <p>MyMedStock to aplikacja do zarządzania zapasem leków w domu. Pomaga śledzić stany magazynowe leków i szacować, na jak długo wystarczy posiadany zapas.</p>
+    <p>MyMedStock <strong>nie jest</strong>:</p>
+    <ul>
+      <li>aplikacją medyczną,</li>
+      <li>systemem dokumentacji zdrowotnej,</li>
+      <li>systemem zarządzania receptami,</li>
+      <li>narzędziem wspomagania decyzji klinicznych.</li>
+    </ul>
+    <p>Wszelkie decyzje medyczne pozostają wyłącznie w gestii użytkownika i jego lekarza.</p>
+
+    <h2>3. Kto może używać MyMedStock</h2>
+    <p>MyMedStock jest przeznaczony dla użytkowników w wieku 18 lat i starszych. Korzystając z aplikacji, potwierdzasz, że masz co najmniej 18 lat.</p>
+
+    <h2>4. Jakie dane zbieramy</h2>
+
+    <h2>4.1 Dane konta</h2>
+    <p>Przy tworzeniu konta zbieramy:</p>
+    <ul>
+      <li>Adres e-mail</li>
+      <li>Hasło (przechowywane w formie zaszyfrowanej — nigdy nie widzimy Twojego rzeczywistego hasła)</li>
+    </ul>
+    <p>Jeśli logujesz się przez Google, otrzymujemy od Google Twój adres e-mail i nazwę wyświetlaną.</p>
+
+    <h2>4.2 Dane o lekach</h2>
+    <p>Dane wprowadzane ręcznie:</p>
+    <ul>
+      <li>Nazwy leków</li>
+      <li>Formy leków (tabletka, kapsułka, żel itp.)</li>
+      <li>Informacje o dawkowaniu</li>
+      <li>Ilości w zapasie</li>
+      <li>Daty ważności</li>
+    </ul>
+    <p>Dane te są przechowywane na Twoim prywatnym koncie i nie są udostępniane nikomu.</p>
+    <p><strong>Ważne:</strong> Informacje o lekach, które wprowadzasz, mogą pośrednio ujawniać informacje o Twoim stanie zdrowia. Traktujemy te dane z taką samą starannością jak dane dotyczące zdrowia. Są one przetwarzane wyłącznie w celu zapewnienia funkcjonalności aplikacji, nigdy nie są wykorzystywane do reklamy, nigdy nie są sprzedawane podmiotom trzecim i nigdy nie są wykorzystywane do profilowania.</p>
+
+    <h2>4.3 Dane techniczne</h2>
+    <p>Możemy zbierać podstawowe informacje techniczne w celu zapewnienia prawidłowego działania aplikacji:</p>
+    <ul>
+      <li>Wersja aplikacji</li>
+      <li>Wersja systemu operacyjnego urządzenia</li>
+      <li>Logi błędów (w przypadku awarii aplikacji)</li>
+    </ul>
+    <p>Nie zbieramy: danych lokalizacyjnych, identyfikatorów urządzeń (IMEI, advertising ID) ani analityki użytkowania wykraczającej poza to, co jest niezbędne do funkcjonowania aplikacji.</p>
+    <p>Nie używamy plików cookies. Niektóre preferencje (takie jak ustawienia powiadomień i motyw aplikacji) są przechowywane lokalnie na Twoim urządzeniu przy użyciu standardowych mechanizmów pamięci Androida i nigdy nie są przesyłane na nasze serwery.</p>
+
+    <h2>5. Jak wykorzystujemy Twoje dane</h2>
+    <p>Wykorzystujemy Twoje dane wyłącznie w celu:</p>
+    <ul>
+      <li>zapewnienia podstawowej funkcjonalności aplikacji (śledzenie leków, obliczenia zapasu),</li>
+      <li>wykonywania szacunków zapasu i kalkulacji planowania wyłącznie na podstawie danych przez Ciebie wprowadzonych,</li>
+      <li>wysyłania skonfigurowanych przez Ciebie powiadomień push (podsumowania tygodniowe, alerty o niskim stanie zapasu),</li>
+      <li>utrzymania i ulepszania aplikacji.</li>
+    </ul>
+    <p>Nie sprzedajemy Twoich danych podmiotom trzecim, nie wykorzystujemy ich do reklamy, nie udostępniamy ich firmom farmaceutycznym ani świadczeniodawcom opieki zdrowotnej ani nie używamy danych o lekach w żadnym innym celu niż wyświetlanie ich Tobie.</p>
+
+    <h2>6. Obliczenia zapasu</h2>
+    <p>Wszystkie obliczenia stanu zapasu, szacunki planowania wizyt i wyjazdów są wyłącznie szacunkami opartymi na danych przez Ciebie wprowadzonych. Obliczenia mogą stać się niedokładne, jeśli wprowadzisz nieprawidłowe dane, zapomnisz zaktualizować stan zapasu, zmienisz dawkowanie bez jego odnotowania, zgubisz lek lub przyjmiesz lek inaczej niż zapisano.</p>
+    <p>MyMedStock nie gwarantuje poprawności, kompletności ani przydatności żadnych obliczeń. Pozostajesz odpowiedzialny za samodzielne weryfikowanie ilości leków i dat ważności na fizycznym opakowaniu przed podjęciem jakichkolwiek decyzji.</p>
+
+    <h2>7. Gdzie przechowywane są Twoje dane</h2>
+    <p>Twoje dane są przechowywane na serwerach dostarczonych przez Supabase (Supabase Inc.), zlokalizowanych w Unii Europejskiej (Irlandia — region AWS eu-west-1). Supabase działa jako nasz podmiot przetwarzający dane. Ich polityka prywatności jest dostępna na stronie: <a href="https://supabase.com/privacy">supabase.com/privacy</a></p>
+    <p>Przechowywanie danych w UE oznacza, że Twoje dane są chronione na mocy RODO.</p>
+
+    <h2>8. Jak długo przechowujemy Twoje dane</h2>
+    <p>Przechowujemy Twoje dane przez cały okres aktywności Twojego konta. Jeśli usuniesz konto, wszystkie Twoje dane osobowe zostaną trwale usunięte z naszych serwerów w ciągu 30 dni. Działanie to jest nieodwracalne.</p>
+    <p>Możesz usunąć swoje konto w dowolnym momencie w: Ustawienia → Usuń konto i dane.</p>
+
+    <h2>9. Twoje prawa wynikające z RODO</h2>
+    <p>Jako mieszkaniec Unii Europejskiej przysługują Ci następujące prawa:</p>
+    <ul>
+      <li><strong>Prawo dostępu</strong> — żądanie kopii danych, które przechowujemy na Twój temat.</li>
+      <li><strong>Prawo do sprostowania</strong> — korygowanie niedokładnych danych bezpośrednio w aplikacji.</li>
+      <li><strong>Prawo do usunięcia</strong> — usunięcie konta i wszystkich powiązanych danych w dowolnym momencie.</li>
+      <li><strong>Prawo do przenoszenia danych</strong> — żądanie danych w formacie nadającym się do odczytu maszynowego.</li>
+      <li><strong>Prawo do sprzeciwu</strong> — sprzeciw wobec przetwarzania Twoich danych.</li>
+      <li><strong>Prawo do ograniczenia przetwarzania</strong> — żądanie ograniczenia sposobu przetwarzania Twoich danych w określonych okolicznościach.</li>
+      <li><strong>Prawo do wycofania zgody</strong> — wycofanie zgody w dowolnym momencie, tam gdzie ma to zastosowanie.</li>
+    </ul>
+    <p>Aby skorzystać z któregokolwiek z tych praw, skontaktuj się z nami: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a></p>
+    <p>Przysługuje Ci również prawo do wniesienia skargi do krajowego organu ochrony danych. W Polsce jest to Urząd Ochrony Danych Osobowych (UODO): <a href="https://uodo.gov.pl">uodo.gov.pl</a></p>
+
+    <h2>10. Powiadomienia push</h2>
+    <p>Jeśli włączysz powiadomienia push, będziemy wysyłać Ci:</p>
+    <ul>
+      <li>Tygodniowe podsumowania stanu zapasu leków (w dniu i o godzinie wybranej w Ustawieniach),</li>
+      <li>Alerty o krytycznie niskim stanie zapasu (gdy lek spadnie poniżej skonfigurowanego progu),</li>
+      <li>Przypomnienia o odbiorze recepty (dla leków oznaczonych jako oczekujące na odbiór).</li>
+    </ul>
+    <p>Powiadomienia push są funkcją wygodową. MyMedStock nie gwarantuje dostarczenia powiadomień. Dostarczanie powiadomień zależy od ustawień urządzenia, systemu operacyjnego, optymalizacji baterii i łączności sieciowej. Pozostajesz wyłącznie odpowiedzialny za zarządzanie zapasem leków — nie polegaj wyłącznie na powiadomieniach w śledzeniu swoich leków.</p>
+    <p>Możesz wyłączyć powiadomienia w dowolnym momencie w Ustawieniach aplikacji → Powiadomienia lub w systemowych ustawieniach powiadomień urządzenia.</p>
+
+    <h2>11. Usługi podmiotów trzecich</h2>
+    <table>
+      <tr><th>Usługa</th><th>Cel</th><th>Polityka prywatności</th></tr>
+      <tr><td>Supabase</td><td>Baza danych i uwierzytelnianie</td><td><a href="https://supabase.com/privacy">Link</a></td></tr>
+      <tr><td>Google Sign-In</td><td>Opcjonalna metoda logowania</td><td><a href="https://policies.google.com/privacy">Link</a></td></tr>
+      <tr><td>Firebase (Google)</td><td>Dystrybucja aplikacji (testy beta)</td><td><a href="https://firebase.google.com/support/privacy">Link</a></td></tr>
+    </table>
+
+    <h2>12. Bezpieczeństwo</h2>
+    <p>Poważnie traktujemy bezpieczeństwo Twoich danych: wszystkie dane są przesyłane przez szyfrowane połączenia (HTTPS/TLS), hasła nigdy nie są przechowywane w postaci jawnej, a dostęp do bazy danych jest chroniony przez zabezpieczenia na poziomie wiersza (Row Level Security, RLS) — możesz uzyskać dostęp wyłącznie do własnych danych.</p>
+    <p>Żaden system nie jest jednak w 100% bezpieczny. Jeśli odkryjesz lukę w zabezpieczeniach, skontaktuj się z nami natychmiast: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a></p>
+
+    <h2>13. Zmiany w niniejszej Polityce</h2>
+    <p>Możemy od czasu do czasu aktualizować niniejszą Politykę Prywatności. W przypadku istotnych zmian poinformujemy Cię za pośrednictwem aplikacji. Drobne aktualizacje (takie jak wyjaśnienia lub poprawki) mogą być wprowadzane bez powiadomienia. Data ostatniej aktualizacji jest zawsze widoczna na górze tego dokumentu.</p>
+    <p>Dalsze korzystanie z aplikacji po opublikowaniu zmian oznacza akceptację zaktualizowanej polityki.</p>
+
+    <h2>14. Kontakt</h2>
+    <p>W przypadku jakichkolwiek pytań dotyczących niniejszej Polityki Prywatności lub sposobu przetwarzania danych:</p>
+    <p><strong>MBJ Studio</strong><br>
+    E-mail: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a><br>
+    Podmiot prawny: Mariusz Bonna-Juszkiewicz, działający jako MBJ Studio · NIP: 5911459846 · Polska</p>
+
+    <footer>© 2026 MBJ Studio · MyMedStock</footer>
   </div>
+</div>
 
-  <div class="footer">© 2026 Bonna Studio · MyMedStock</div>
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('visible'));
+    document.querySelector('[data-lang="' + lang + '"]').classList.add('visible');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+    document.documentElement.lang = lang;
+    localStorage.setItem('mymedstock_lang', lang);
+  }
 
+  (function() {
+    const saved = localStorage.getItem('mymedstock_lang');
+    const browser = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    const lang = saved || (browser.startsWith('pl') ? 'pl' : 'en');
+    setLang(lang);
+  })();
+</script>
 </body>
 </html>
+Update Privacy Policy - MBJ Studio, bilingual EN/PL
