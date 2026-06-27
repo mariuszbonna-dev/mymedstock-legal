@@ -1,93 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms & Conditions — MyMedStock</title>
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #F5F7FA;
-    color: #0D2B4E;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-  }
-  .header {
-    background: #0D2B4E;
-    padding: 2rem 1.5rem;
-    text-align: center;
-  }
-  .wordmark {
-    font-size: 24px;
-    font-weight: 500;
-  }
-  .wordmark .my, .wordmark .stock { color: #E8F0F7; }
-  .wordmark .med { color: #E8622A; }
-  .header a {
-    color: #7FA8C9;
-    text-decoration: none;
-    font-size: 13px;
-    display: inline-block;
-    margin-top: 8px;
-  }
-  .content {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-    background: white;
-  }
-  h1 { font-size: 24px; margin-top: 0; }
-  h2 { font-size: 18px; margin-top: 2rem; color: #0D2B4E; border-bottom: 1px solid #E8EDF2; padding-bottom: 8px; }
-  p, li { color: #2C3E50; font-size: 15px; }
-  .updated { color: #7FA8C9; font-size: 13px; margin-bottom: 2rem; }
-  .warning {
-    background: #FFF8F6;
-    border-left: 3px solid #C0392B;
-    padding: 12px 16px;
-    margin: 1rem 0;
-    font-size: 14px;
-  }
-  a { color: #2E7DB5; }
-  .footer { text-align: center; padding: 2rem; color: #7FA8C9; font-size: 12px; }
-  .legal-entity { text-align: center; padding: 0 1.5rem; color: #A7B9C9; font-size: 11px; max-width: 720px; margin: 2rem auto 0; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms &amp; Conditions — MyMedStock</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size: 16px; line-height: 1.7; color: #1a1a1a; background: #fff; }
+    .container { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #e5e5e5; }
+    .brand { font-size: 20px; font-weight: 700; color: #0D2B4E; text-decoration: none; }
+    .back { font-size: 14px; color: #0D2B4E; text-decoration: none; }
+    .back:hover { text-decoration: underline; }
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-btn { font-size: 13px; padding: 4px 10px; border: 1px solid #0D2B4E; border-radius: 4px; cursor: pointer; background: white; color: #0D2B4E; }
+    .lang-btn.active { background: #0D2B4E; color: white; }
+    h1 { font-size: 28px; font-weight: 700; color: #0D2B4E; margin-bottom: 8px; }
+    .updated { font-size: 14px; color: #666; margin-bottom: 40px; }
+    h2 { font-size: 18px; font-weight: 600; color: #0D2B4E; margin: 36px 0 12px; }
+    p { margin-bottom: 14px; }
+    ul { margin: 12px 0 14px 24px; }
+    li { margin-bottom: 6px; }
+    a { color: #0D2B4E; }
+    .notice { background: #f5f7fa; border-left: 3px solid #0D2B4E; padding: 14px 16px; margin: 16px 0; border-radius: 2px; font-size: 15px; }
+    .warning { background: #fff8f6; border-left: 3px solid #E8622A; padding: 14px 16px; margin: 16px 0; border-radius: 2px; font-size: 15px; }
+    footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid #e5e5e5; font-size: 13px; color: #888; }
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+  </style>
 </head>
 <body>
-  <div class="header">
-    <div class="wordmark">
-      <span class="my">My</span><span class="med">Med</span><span class="stock">Stock</span>
+<div class="container">
+  <header>
+    <a href="/" class="brand">MyMedStock</a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/" class="back">← Back to home</a>
+      <div class="lang-switch">
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-pl" onclick="setLang('pl')">PL</button>
+      </div>
     </div>
-    <a href="index.html">← Back to home</a>
-  </div>
+  </header>
 
-  <div class="content">
+  <!-- ENGLISH VERSION -->
+  <div data-lang="en">
     <h1>Terms &amp; Conditions</h1>
-    <p class="updated">Last updated: June 19, 2026</p>
+    <p class="updated">Last updated: June 27, 2026</p>
+
+    <div class="notice">The English version of these Terms &amp; Conditions is the legally binding version. The Polish translation is provided for informational purposes only.</div>
+
+    <div class="warning"><strong>Important:</strong> MyMedStock is a medication inventory and planning tool. It is not a medical device and does not provide medical advice. All calculations are estimates. Never make medical decisions based solely on this app.</div>
 
     <h2>1. Acceptance of Terms</h2>
     <p>By downloading, installing, or using the MyMedStock mobile application ("the App"), you agree to be bound by these Terms &amp; Conditions ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
-    <p>The App is operated by <strong>Bonna Studio</strong>, referred to as "we", "us", or "our". See the Legal Entity section at the bottom of this page for full registered business details.</p>
+    <p>The App is operated by MBJ Studio. See Section 13 for full legal entity details.</p>
 
     <h2>2. Eligibility</h2>
-    <p>You must be at least <strong>18 years old</strong> to use MyMedStock. By using the App, you confirm that you meet this age requirement.</p>
+    <p>You must be at least 18 years old to use MyMedStock. By using the App, you confirm that you meet this age requirement.</p>
 
     <h2>3. What MyMedStock Is — and Is Not</h2>
-    <div class="warning">
-      <strong>Important:</strong> MyMedStock is a personal medication inventory management tool. It is <strong>not</strong> a medical device, not a clinical decision support system, and does not provide medical advice.
-    </div>
+    <p>MyMedStock is a personal medication inventory management tool. It is not a medical device, not a clinical decision support system, and does not provide medical advice.</p>
     <p>The App helps you:</p>
     <ul>
       <li>track the quantity of medications you have at home,</li>
       <li>estimate how many days your supply will last based on dosage information you provide,</li>
       <li>plan ahead for medical appointments and trips.</li>
     </ul>
-    <p>All calculations are estimates based on data <strong>you</strong> enter. They do not account for missed doses, dose changes not recorded in the App, or any other real-world variation.</p>
+    <p>All calculations are estimates based solely on data you enter. They may become inaccurate if you enter incorrect data, forget to update your stock, change your dosage without recording it, lose medication, or consume medication differently than recorded. MyMedStock does not guarantee the correctness, completeness, availability, or suitability of any supply calculation.</p>
 
     <h2>4. Your Responsibilities</h2>
     <p>You are solely responsible for:</p>
     <ul>
       <li>the accuracy of the data you enter into the App (medication names, dosages, quantities, expiry dates),</li>
+      <li>independently verifying medication quantities, expiry dates, and availability before travel or medical appointments — regardless of what the App calculates,</li>
       <li>verifying medication stock levels and expiry dates with the physical packaging before making any medical decisions,</li>
       <li>consulting a licensed healthcare professional or pharmacist for any medical advice, diagnosis, or treatment decisions,</li>
       <li>keeping your account credentials secure.</li>
@@ -96,11 +81,13 @@
     <h2>5. No Medical Advice</h2>
     <p>MyMedStock does not provide medical advice. Nothing in the App should be interpreted as a recommendation regarding dosage, treatment, or any medical decision. Always consult your doctor or pharmacist before making changes to your medication regimen.</p>
 
-    <h2>6. Account Registration</h2>
-    <p>To use the App, you must create an account using an email address and password, or sign in with Google. You agree to provide accurate information and to keep it up to date.</p>
-    <p>You are responsible for all activity that occurs under your account.</p>
+    <h2>6. Push Notifications</h2>
+    <p>Push notifications (including low stock alerts, prescription reminders, and weekly summaries) are provided as a convenience feature only. MBJ Studio does not guarantee the delivery of any notification. Notification delivery depends on your device settings, operating system, battery optimisation, and network connectivity. You remain solely responsible for monitoring your medication supply.</p>
 
-    <h2>7. Acceptable Use</h2>
+    <h2>7. Account Registration</h2>
+    <p>To use the App, you must create an account using an email address and password, or sign in with Google. You agree to provide accurate information and to keep it up to date. You are responsible for all activity that occurs under your account.</p>
+
+    <h2>8. Acceptable Use</h2>
     <p>You agree not to:</p>
     <ul>
       <li>use the App for any unlawful purpose,</li>
@@ -109,40 +96,158 @@
       <li>use the App in a way that could damage, disable, or impair its functionality.</li>
     </ul>
 
-    <h2>8. Limitation of Liability</h2>
-    <p>The App is provided "as is" without warranties of any kind, express or implied. To the maximum extent permitted by law, Bonna Studio shall not be liable for:</p>
+    <h2>9. Intellectual Property</h2>
+    <p>The App, including its design, code, branding, and content, is owned by MBJ Studio and protected by copyright and intellectual property law. You may not copy, modify, distribute, or create derivative works based on the App without our prior written consent.</p>
+
+    <h2>10. Limitation of Liability</h2>
+    <p>The App is provided "as is" without warranties of any kind, express or implied. To the maximum extent permitted by law, MBJ Studio shall not be liable for:</p>
     <ul>
       <li>any inaccuracies in stock calculations resulting from incorrect or incomplete data entered by the user,</li>
       <li>any harm resulting from reliance on the App's estimates without independent verification,</li>
+      <li>any losses arising from software bugs, synchronisation failures, notification delivery failures, service interruptions, data loss, calculation errors, or temporary service unavailability,</li>
       <li>any indirect, incidental, or consequential damages arising from use of the App.</li>
     </ul>
     <p>Nothing in these Terms limits liability that cannot be excluded under applicable law, including liability for death or personal injury caused by negligence, where such exclusion is not permitted.</p>
 
-    <h2>9. Data and Privacy</h2>
-    <p>Your use of the App is also governed by our <a href="privacy-policy.html">Privacy Policy</a>, which explains how we collect, use, and protect your data.</p>
+    <h2>11. Service Availability and Changes</h2>
+    <p>We reserve the right to modify, suspend, or discontinue the App or any part of it at any time. In the event of permanent discontinuation, we will endeavour to provide at least 30 days' notice through the App or by email. We shall not be liable to you or any third party for any modification, suspension, or discontinuation of the service.</p>
 
-    <h2>10. Account Termination</h2>
-    <p>You may delete your account at any time from <strong>Settings → Delete account and data</strong>. This will permanently remove your data within 30 days.</p>
-    <p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+    <h2>12. Severability</h2>
+    <p>If any provision of these Terms is found to be invalid or unenforceable under applicable law, that provision shall be modified to the minimum extent necessary to make it enforceable, or severed if modification is not possible. The remaining provisions shall continue in full force and effect.</p>
 
-    <h2>11. Changes to the App and These Terms</h2>
-    <p>We may update the App and these Terms from time to time. If we make significant changes to these Terms, we will notify you through the App. Continued use of the App after changes are published constitutes acceptance of the updated Terms.</p>
+    <h2>13. Data and Privacy</h2>
+    <p>Your use of the App is also governed by our <a href="/privacy-policy.html">Privacy Policy</a>, which explains how we collect, use, and protect your data.</p>
 
-    <h2>12. Governing Law</h2>
+    <h2>14. Account Termination</h2>
+    <p>You may delete your account at any time from Settings → Delete account and data. This will permanently remove your data within 30 days. We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+
+    <h2>15. Changes to the App and These Terms</h2>
+    <p>We may update the App and these Terms from time to time. If we make significant changes to these Terms, we will notify you through the App. Minor updates may be made without notice. Continued use of the App after changes are published constitutes acceptance of the updated Terms.</p>
+
+    <h2>16. Governing Law</h2>
     <p>These Terms are governed by the laws of Poland. Any disputes arising from these Terms shall be subject to the jurisdiction of the competent Polish courts, without prejudice to any mandatory consumer protection rights you may have under the law of your country of residence within the European Union.</p>
 
-    <h2>13. Contact</h2>
+    <h2>17. Contact</h2>
     <p>If you have any questions about these Terms:</p>
-    <p><strong>Bonna Studio</strong><br>
-    Email: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a></p>
+    <p><strong>MBJ Studio</strong><br>
+    Email: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a><br>
+    Legal entity: Mariusz Bonna-Juszkiewicz, trading as MBJ Studio · Tax ID (NIP): 5911459846 · Poland</p>
 
+    <footer>© 2026 MBJ Studio · MyMedStock</footer>
   </div>
 
-  <div class="legal-entity">
-    <p>Legal entity: Mariusz Bonna-Juszkiewicz, trading as Bonna Studio · Tax ID (NIP): 5911459846 · Poland</p>
+  <!-- POLISH VERSION -->
+  <div data-lang="pl">
+    <h1>Regulamin</h1>
+    <p class="updated">Ostatnia aktualizacja: 27 czerwca 2026</p>
+
+    <div class="notice">Prawnie wiążąca jest angielska wersja Regulaminu. Poniższe tłumaczenie na język polski ma charakter wyłącznie informacyjny.</div>
+
+    <div class="warning"><strong>Ważne:</strong> MyMedStock to narzędzie do zarządzania zapasem leków. Nie jest urządzeniem medycznym i nie udziela porad medycznych. Wszystkie obliczenia są szacunkami. Nigdy nie podejmuj decyzji medycznych wyłącznie na podstawie tej aplikacji.</div>
+
+    <h2>1. Akceptacja Regulaminu</h2>
+    <p>Pobierając, instalując lub używając aplikacji mobilnej MyMedStock („Aplikacja"), zgadzasz się na przestrzeganie niniejszego Regulaminu. Jeśli nie zgadzasz się z Regulaminem, prosimy o nieużywanie Aplikacji.</p>
+    <p>Aplikacja jest obsługiwana przez MBJ Studio. Pełne dane podmiotu prawnego znajdują się w sekcji 13.</p>
+
+    <h2>2. Wymagania wiekowe</h2>
+    <p>Aby korzystać z MyMedStock, musisz mieć co najmniej 18 lat. Korzystając z Aplikacji, potwierdzasz, że spełniasz ten wymóg wiekowy.</p>
+
+    <h2>3. Czym jest MyMedStock — i czym nie jest</h2>
+    <p>MyMedStock to narzędzie do zarządzania zapasem leków. Nie jest urządzeniem medycznym, systemem wspomagania decyzji klinicznych i nie udziela porad medycznych.</p>
+    <p>Aplikacja pomaga:</p>
+    <ul>
+      <li>śledzić ilość leków posiadanych w domu,</li>
+      <li>szacować, na ile dni wystarczy zapas, na podstawie wprowadzonych przez Ciebie informacji o dawkowaniu,</li>
+      <li>planować wizyty lekarskie i wyjazdy.</li>
+    </ul>
+    <p>Wszystkie obliczenia są szacunkami opartymi wyłącznie na danych przez Ciebie wprowadzonych. Mogą stać się niedokładne, jeśli wprowadzisz nieprawidłowe dane, zapomnisz zaktualizować stan zapasu, zmienisz dawkowanie bez jego odnotowania, zgubisz lek lub przyjmiesz lek inaczej niż zapisano. MyMedStock nie gwarantuje poprawności, kompletności, dostępności ani przydatności żadnych obliczeń zapasu.</p>
+
+    <h2>4. Twoje obowiązki</h2>
+    <p>Ponosisz wyłączną odpowiedzialność za:</p>
+    <ul>
+      <li>dokładność danych wprowadzanych do Aplikacji (nazwy leków, dawkowania, ilości, daty ważności),</li>
+      <li>samodzielne weryfikowanie ilości leków, dat ważności i dostępności przed wyjazdem lub wizytą lekarską — niezależnie od wyników obliczeń Aplikacji,</li>
+      <li>weryfikowanie stanów magazynowych leków i dat ważności na fizycznym opakowaniu przed podjęciem jakichkolwiek decyzji medycznych,</li>
+      <li>konsultowanie się z licencjonowanym pracownikiem służby zdrowia lub farmaceutą w sprawach porad medycznych, diagnoz lub decyzji dotyczących leczenia,</li>
+      <li>bezpieczeństwo danych dostępowych do konta.</li>
+    </ul>
+
+    <h2>5. Brak porad medycznych</h2>
+    <p>MyMedStock nie udziela porad medycznych. Nic w Aplikacji nie powinno być interpretowane jako zalecenie dotyczące dawkowania, leczenia ani jakiejkolwiek decyzji medycznej. Zawsze konsultuj się z lekarzem lub farmaceutą przed wprowadzeniem zmian w schemacie przyjmowania leków.</p>
+
+    <h2>6. Powiadomienia push</h2>
+    <p>Powiadomienia push (w tym alerty o niskim stanie zapasu, przypomnienia o receptach i podsumowania tygodniowe) są udostępniane wyłącznie jako funkcja wygodowa. MBJ Studio nie gwarantuje dostarczenia żadnego powiadomienia. Dostarczanie powiadomień zależy od ustawień urządzenia, systemu operacyjnego, optymalizacji baterii i łączności sieciowej. Pozostajesz wyłącznie odpowiedzialny za monitorowanie zapasu swoich leków.</p>
+
+    <h2>7. Rejestracja konta</h2>
+    <p>Aby korzystać z Aplikacji, musisz utworzyć konto przy użyciu adresu e-mail i hasła lub zalogować się przez Google. Zgadzasz się podawać dokładne informacje i aktualizować je na bieżąco. Odpowiadasz za wszelką aktywność na swoim koncie.</p>
+
+    <h2>8. Dopuszczalne użytkowanie</h2>
+    <p>Zgadzasz się nie:</p>
+    <ul>
+      <li>używać Aplikacji w celach niezgodnych z prawem,</li>
+      <li>próbować uzyskać nieautoryzowanego dostępu do systemów Aplikacji lub danych innych użytkowników,</li>
+      <li>dokonywać inżynierii wstecznej, dekompilacji ani dezasemblacji Aplikacji,</li>
+      <li>używać Aplikacji w sposób, który mógłby uszkodzić, wyłączyć lub osłabić jej funkcjonalność.</li>
+    </ul>
+
+    <h2>9. Własność intelektualna</h2>
+    <p>Aplikacja, w tym jej design, kod, marka i treść, jest własnością MBJ Studio i jest chroniona prawem autorskim oraz prawem własności intelektualnej. Nie możesz kopiować, modyfikować, rozpowszechniać ani tworzyć dzieł pochodnych opartych na Aplikacji bez naszej uprzedniej pisemnej zgody.</p>
+
+    <h2>10. Ograniczenie odpowiedzialności</h2>
+    <p>Aplikacja jest udostępniana „w stanie, w jakim jest" bez żadnych gwarancji, wyraźnych ani dorozumianych. W maksymalnym zakresie dozwolonym przez prawo MBJ Studio nie ponosi odpowiedzialności za:</p>
+    <ul>
+      <li>nieścisłości w obliczeniach stanu zapasu wynikające z nieprawidłowych lub niekompletnych danych wprowadzonych przez użytkownika,</li>
+      <li>szkody wynikające z polegania na szacunkach Aplikacji bez samodzielnej weryfikacji,</li>
+      <li>straty wynikające z błędów oprogramowania, awarii synchronizacji, niedostarczenia powiadomień, przerw w świadczeniu usług, utraty danych, błędów w obliczeniach lub tymczasowej niedostępności usługi,</li>
+      <li>jakiekolwiek pośrednie, przypadkowe lub wynikowe szkody powstałe w wyniku korzystania z Aplikacji.</li>
+    </ul>
+    <p>Żadne postanowienie niniejszego Regulaminu nie ogranicza odpowiedzialności, której nie można wyłączyć na mocy obowiązującego prawa, w tym odpowiedzialności za śmierć lub obrażenia ciała spowodowane zaniedbaniem, jeżeli takie wyłączenie jest niedopuszczalne.</p>
+
+    <h2>11. Dostępność usługi i zmiany</h2>
+    <p>Zastrzegamy sobie prawo do modyfikowania, zawieszania lub zaprzestania świadczenia Aplikacji lub jej części w dowolnym momencie. W przypadku trwałego zaprzestania świadczenia usługi dołożymy starań, aby powiadomić o tym z co najmniej 30-dniowym wyprzedzeniem za pośrednictwem Aplikacji lub poczty e-mail. Nie ponosimy odpowiedzialności wobec Ciebie ani żadnej osoby trzeciej za jakiekolwiek modyfikacje, zawieszenie lub zaprzestanie świadczenia usługi.</p>
+
+    <h2>12. Rozdzielność postanowień</h2>
+    <p>Jeśli którekolwiek postanowienie niniejszego Regulaminu zostanie uznane za nieważne lub niewykonalne na mocy obowiązującego prawa, postanowienie to zostanie zmodyfikowane w minimalnym niezbędnym zakresie, aby uczynić je wykonalnym, lub wyłączone, jeśli modyfikacja nie jest możliwa. Pozostałe postanowienia pozostają w pełnej mocy.</p>
+
+    <h2>13. Dane i prywatność</h2>
+    <p>Korzystanie z Aplikacji podlega również naszej <a href="/privacy-policy.html">Polityce Prywatności</a>, która wyjaśnia, w jaki sposób zbieramy, wykorzystujemy i chronimy Twoje dane.</p>
+
+    <h2>14. Rozwiązanie konta</h2>
+    <p>Możesz usunąć swoje konto w dowolnym momencie w Ustawieniach → Usuń konto i dane. Spowoduje to trwałe usunięcie Twoich danych w ciągu 30 dni. Zastrzegamy sobie prawo do zawieszenia lub rozwiązania kont naruszających niniejszy Regulamin.</p>
+
+    <h2>15. Zmiany w Aplikacji i niniejszym Regulaminie</h2>
+    <p>Możemy od czasu do czasu aktualizować Aplikację i niniejszy Regulamin. W przypadku istotnych zmian w Regulaminie poinformujemy Cię za pośrednictwem Aplikacji. Drobne aktualizacje mogą być wprowadzane bez powiadomienia. Dalsze korzystanie z Aplikacji po opublikowaniu zmian oznacza akceptację zaktualizowanego Regulaminu.</p>
+
+    <h2>16. Prawo właściwe</h2>
+    <p>Niniejszy Regulamin podlega prawu polskiemu. Wszelkie spory wynikające z niniejszego Regulaminu będą rozstrzygane przez właściwe polskie sądy, bez uszczerbku dla jakichkolwiek obowiązkowych praw ochrony konsumentów, które mogą Ci przysługiwać na mocy prawa kraju Twojego zamieszkania w Unii Europejskiej.</p>
+
+    <h2>17. Kontakt</h2>
+    <p>W przypadku jakichkolwiek pytań dotyczących niniejszego Regulaminu:</p>
+    <p><strong>MBJ Studio</strong><br>
+    E-mail: <a href="mailto:support@mymedstock.app">support@mymedstock.app</a><br>
+    Podmiot prawny: Mariusz Bonna-Juszkiewicz, działający jako MBJ Studio · NIP: 5911459846 · Polska</p>
+
+    <footer>© 2026 MBJ Studio · MyMedStock</footer>
   </div>
+</div>
 
-  <div class="footer">© 2026 Bonna Studio · MyMedStock</div>
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('visible'));
+    document.querySelector('[data-lang="' + lang + '"]').classList.add('visible');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+    document.documentElement.lang = lang;
+    localStorage.setItem('mymedstock_lang', lang);
+  }
 
+  (function() {
+    const saved = localStorage.getItem('mymedstock_lang');
+    const browser = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    const lang = saved || (browser.startsWith('pl') ? 'pl' : 'en');
+    setLang(lang);
+  })();
+</script>
 </body>
 </html>
+Update Terms & Conditions - MBJ Studio, bilingual EN/PL
