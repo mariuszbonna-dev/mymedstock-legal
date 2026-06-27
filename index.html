@@ -1,77 +1,607 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyMedStock</title>
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #F5F7FA;
-    color: #0D2B4E;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-  }
-  .container {
-    text-align: center;
-    padding: 2rem;
-    max-width: 480px;
-  }
-  .wordmark {
-    font-size: 32px;
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
-  .wordmark .my, .wordmark .stock { color: #0D2B4E; }
-  .wordmark .med { color: #E8622A; }
-  .tagline {
-    color: #5A6F86;
-    font-size: 14px;
-    margin-bottom: 2.5rem;
-  }
-  .links {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  a.link-button {
-    display: block;
-    padding: 14px 24px;
-    border: 1.5px solid #0D2B4E;
-    border-radius: 24px;
-    color: #0D2B4E;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    transition: background 0.2s;
-  }
-  a.link-button:hover {
-    background: rgba(13,43,78,0.06);
-  }
-  .footer {
-    margin-top: 3rem;
-    font-size: 12px;
-    color: #7FA8C9;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyMedStock — Your medication inventory, under control</title>
+  <meta name="description" content="MyMedStock helps you track your medication supply, plan for doctor visits, and prepare for trips. Always know what you have.">
+  <style>
+    :root {
+      --navy: #0D2B4E;
+      --navy-dark: #071828;
+      --coral: #E8622A;
+      --bg: #F5F7FA;
+      --white: #FFFFFF;
+      --text: #0D2B4E;
+      --text-secondary: #5A6F86;
+      --border: #CBD5E0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-brand span { color: var(--coral); }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      padding: 120px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: var(--coral);
+      opacity: 0.06;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: var(--coral);
+      opacity: 0.04;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      max-width: 640px;
+      margin: 0 auto 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--coral);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      max-width: 460px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--coral);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .hero-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .hero-cta svg { width: 20px; height: 20px; fill: white; }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* THREE QUESTIONS */
+    .questions {
+      background: var(--bg);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+    }
+
+    .questions h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+      margin-bottom: 48px;
+    }
+
+    .q-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .q-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 32px 28px;
+      text-align: left;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .q-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--coral);
+    }
+
+    .q-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+    }
+
+    .q-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .q-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 80px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .features-header h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .features-header p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    .feature h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      background: var(--bg);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .disclaimer p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--navy);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 36px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy-dark);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+
+
+    .lang-switch { display: flex; gap: 8px; }
+    .lang-btn { font-size: 13px; padding: 4px 10px; border: 1px solid var(--navy); border-radius: 4px; cursor: pointer; background: white; color: var(--navy); }
+    .lang-btn.active { background: var(--navy); color: white; }
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 100px 20px 60px; }
+      .q-grid { grid-template-columns: 1fr; }
+      .feature-list { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="wordmark">
-      <span class="my">My</span><span class="med">Med</span><span class="stock">Stock</span>
-    </div>
-    <p class="tagline">Never run out of your medication again.</p>
 
-    <div class="links">
-      <a class="link-button" href="privacy-policy.html">Privacy Policy</a>
-      <a class="link-button" href="terms.html">Terms &amp; Conditions</a>
-    </div>
-
-    <p class="footer">© 2026 MBJ Studio · support@mymedstock.app</p>
+<nav>
+  <a href="/" class="nav-brand">My<span>Med</span>Stock</a>
+  <div class="nav-links">
+    <div class="lang-switch"><button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button><button class="lang-btn" id="btn-pl" onclick="setLang('pl')">PL</button></div>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="mailto:support@mymedstock.app">Contact</a>
   </div>
+</nav>
+
+<div data-lang="en">
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-eyebrow">Medication Inventory</span>
+  <h1>Your medication inventory,<br><em>under control.</em></h1>
+  <p class="hero-sub">Track what you have, plan for your next appointment, and never run short on a trip.</p>
+  <a href="#" class="hero-cta" id="play-btn">
+    <svg viewBox="0 0 24 24"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.36.6 1.24 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+    Get it on Google Play
+  </a>
+  <p class="hero-note">Free · Android</p>
+</section>
+
+<!-- THREE QUESTIONS -->
+<section class="questions">
+  <p class="section-label">Three questions. One app.</p>
+  <h2>Everything you need to know<br>about your medications</h2>
+  <div class="q-grid">
+    <div class="q-card">
+      <p class="q-number">01</p>
+      <h3>How much do I have at home?</h3>
+      <p>See your current supply at a glance. Know which medications need restocking before you run out.</p>
+    </div>
+    <div class="q-card">
+      <p class="q-number">02</p>
+      <h3>Will it last until my appointment?</h3>
+      <p>Set your appointment date and instantly see which medications won't make it — before the visit.</p>
+    </div>
+    <div class="q-card">
+      <p class="q-number">03</p>
+      <h3>Do I have enough for my trip?</h3>
+      <p>Plan your trip dates and get a clear answer: what to pack, what to refill, what's running low after you return.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="features-header">
+    <p class="section-label">Built for real use</p>
+    <h2>Simple by design</h2>
+    <p>No subscriptions, no health data tracking, no unnecessary complexity.</p>
+  </div>
+  <div class="feature-list">
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/></svg>
+      </div>
+      <div>
+        <h4>Smart alerts</h4>
+        <p>Get notified when supply runs low or an expiry date approaches — at a time that actually matters.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 00-2 2v16a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 18H5V8h14v13z"/></svg>
+      </div>
+      <div>
+        <h4>Appointment planning</h4>
+        <p>Pick a date, see exactly which medications will run short — with how many days you'll be missing.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 6h-3V4a2 2 0 00-2-2H9a2 2 0 00-2 2v2H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2zM9 4h6v2H9V4z"/></svg>
+      </div>
+      <div>
+        <h4>Trip preparation</h4>
+        <p>Set your travel dates and see what to pack, what to refill, and what might run low after you return.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l6 2.67V11c0 3.88-2.64 7.5-6 8.93C8.64 18.5 6 14.88 6 11V7.67L12 5z"/></svg>
+      </div>
+      <div>
+        <h4>Private by default</h4>
+        <p>Your data stays in your account. No ads, no profiling, no sharing with third parties. Hosted in the EU.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+      </div>
+      <div>
+        <h4>Export to PDF</h4>
+        <p>Print your medication list for your doctor, caregiver, or travel documents — in one tap.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      </div>
+      <div>
+        <h4>Works offline</h4>
+        <p>Your medication data is always available, even without an internet connection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p>MyMedStock is not a medical app — it is a medication inventory tool. It does not provide medical advice. All calculations are estimates based on data you enter. Always verify medication quantities with the physical packaging and consult your healthcare provider for medical decisions.</p>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to take control?</h2>
+  <p>Free to download. No subscription required.</p>
+  <a href="#" class="hero-cta" id="play-btn-2">
+    <svg viewBox="0 0 24 24"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.36.6 1.24 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+    Get it on Google Play
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms &amp; Conditions</a>
+    <a href="mailto:support@mymedstock.app">support@mymedstock.app</a>
+  </div>
+  <p class="footer-copy">© 2026 MBJ Studio · MyMedStock</p>
+</footer>
+</div><!-- end EN -->
+
+<!-- POLISH VERSION -->
+<div data-lang="pl">
+
+<section class="hero">
+  <span class="hero-eyebrow">Zarządzanie lekami</span>
+  <h1>Twoje leki,<br><em>pod kontrolą.</em></h1>
+  <p class="hero-sub">Śledź zapas, planuj wizytę lekarską i nigdy nie jedź na wyjazd bez odpowiedniej ilości leków.</p>
+  <a href="#" class="hero-cta" id="play-btn-pl">
+    <svg viewBox="0 0 24 24"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.36.6 1.24 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+    Pobierz w Google Play
+  </a>
+  <p class="hero-note">Bezpłatna · Android</p>
+</section>
+
+<section class="questions">
+  <p class="section-label">Trzy pytania. Jedna aplikacja.</p>
+  <h2>Wszystko, co musisz wiedzieć<br>o swoich lekach</h2>
+  <div class="q-grid">
+    <div class="q-card"><p class="q-number">01</p><h3>Ile mam leków w domu?</h3><p>Sprawdź aktualny stan zapasu jednym spojrzeniem. Dowiedz się, które leki wymagają uzupełnienia zanim skończą się całkowicie.</p></div>
+    <div class="q-card"><p class="q-number">02</p><h3>Wystarczy do wizyty lekarskiej?</h3><p>Podaj datę wizyty i od razu sprawdź, których leków może zabraknąć — zanim to nastąpi.</p></div>
+    <div class="q-card"><p class="q-number">03</p><h3>Mam wystarczająco na wyjazd?</h3><p>Wpisz daty wyjazdu i dowiedz się co spakować, co uzupełnić i co może skończyć się wkrótce po powrocie.</p></div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="features-header">
+    <p class="section-label">Zaprojektowane do codziennego użytku</p>
+    <h2>Prosto i skutecznie</h2>
+    <p>Bez subskrypcji, bez śledzenia danych zdrowotnych, bez zbędnej złożoności.</p>
+  </div>
+  <div class="feature-list">
+    <div class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z"/></svg></div><div><h4>Inteligentne alerty</h4><p>Powiadomienia gdy zapas jest niski lub zbliża się termin ważności — we właściwym momencie.</p></div></div>
+    <div class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 00-2 2v16a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 18H5V8h14v13z"/></svg></div><div><h4>Planowanie wizyt</h4><p>Wybierz datę i sprawdź dokładnie, których leków zabraknie — z liczbą brakujących dni.</p></div></div>
+    <div class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-3V4a2 2 0 00-2-2H9a2 2 0 00-2 2v2H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2zM9 4h6v2H9V4z"/></svg></div><div><h4>Przygotowanie do wyjazdu</h4><p>Podaj daty wyjazdu i sprawdź co spakować, co uzupełnić i co skończy się wkrótce po powrocie.</p></div></div>
+    <div class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l6 2.67V11c0 3.88-2.64 7.5-6 8.93C8.64 18.5 6 14.88 6 11V7.67L12 5z"/></svg></div><div><h4>Prywatność przede wszystkim</h4><p>Dane zostają na Twoim koncie. Bez reklam, bez profilowania, bez udostępniania. Serwery w UE.</p></div></div>
+    <div class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div><div><h4>Eksport PDF</h4><p>Wydrukuj listę leków dla lekarza, opiekuna lub na dokumenty podróżne — jednym dotknięciem.</p></div></div>
+    <div class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div><div><h4>Działa offline</h4><p>Twoje leki są zawsze dostępne, nawet bez połączenia z internetem.</p></div></div>
+  </div>
+</section>
+
+<div class="disclaimer"><p>MyMedStock nie jest aplikacją medyczną — to narzędzie do zarządzania zapasem leków. Nie udziela porad medycznych. Wszystkie obliczenia są szacunkami opartymi na danych przez Ciebie wprowadzonych. Zawsze weryfikuj ilości leków z fizycznym opakowaniem i konsultuj się z lekarzem w sprawach medycznych.</p></div>
+
+<section class="cta-section">
+  <h2>Gotowy na pełną kontrolę?</h2>
+  <p>Bezpłatna do pobrania. Bez subskrypcji.</p>
+  <a href="#" class="hero-cta" id="play-btn-pl-2">
+    <svg viewBox="0 0 24 24"><path d="M3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.36.6 1.24 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
+    Pobierz w Google Play
+  </a>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="/privacy-policy.html">Polityka prywatności</a>
+    <a href="/terms.html">Regulamin</a>
+    <a href="mailto:support@mymedstock.app">support@mymedstock.app</a>
+  </div>
+  <p class="footer-copy">© 2026 MBJ Studio · MyMedStock</p>
+</footer>
+
+</div><!-- end PL -->
+
+<script>
+  // Po publikacji w Google Play zastąp # prawdziwym linkiem
+  const PLAY_URL = '#'; // np. 'https://play.google.com/store/apps/details?id=com.medstock.medstock'
+  document.getElementById('play-btn').href = PLAY_URL;
+  document.getElementById('play-btn-2').href = PLAY_URL;
+  if (document.getElementById('play-btn-pl')) document.getElementById('play-btn-pl').href = PLAY_URL;
+  if (document.getElementById('play-btn-pl-2')) document.getElementById('play-btn-pl-2').href = PLAY_URL;
+
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('visible'));
+    document.querySelector('[data-lang="' + lang + '"]').classList.add('visible');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+    document.documentElement.lang = lang;
+    localStorage.setItem('mymedstock_lang', lang);
+  }
+
+  (function() {
+    const saved = localStorage.getItem('mymedstock_lang');
+    const browser = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    const lang = saved || (browser.startsWith('pl') ? 'pl' : 'en');
+    setLang(lang);
+  })();
+</script>
+
 </body>
 </html>
